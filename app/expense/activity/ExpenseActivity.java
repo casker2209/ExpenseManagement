@@ -1,4 +1,4 @@
-package com.viettel.vpmt.vofficenew.expense.activity;
+package com.mobile.expensemanagement.activity;
 
 
 import android.app.Activity;
@@ -7,11 +7,11 @@ import android.os.Bundle;
 
 
 
-import com.viettel.vpmt.vofficenew.R;
-import com.viettel.vpmt.vofficenew.expense.database.Expense;
-import com.viettel.vpmt.vofficenew.expense.fragment.CreateFragment;
-import com.viettel.vpmt.vofficenew.expense.fragment.EditFragment;
-import com.viettel.vpmt.vofficenew.expense.fragment.ExpenseFragment;
+import com.mobile.expensemanagement.R;
+import com.mobile.expensemanagement.database.Expense;
+import com.mobile.expensemanagement.fragment.CreateFragment;
+import com.mobile.expensemanagement.fragment.EditFragment;
+import com.mobile.expensemanagement.fragment.ExpenseFragment;
 
 public class ExpenseActivity extends Activity {
     @Override
