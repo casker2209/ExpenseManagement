@@ -1,55 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     android:paddingHorizontal="10dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:id="@+id/rl_expense">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:layout_toLeftOf="@+id/btEdit">
         <TextView
             android:id="@+id/tv_expense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:gravity="center_vertical"
-            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/black"
             android:textSize="16sp" />
-
+            <TextView
+                android:id="@+id/tv_expense_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:textSize="12sp" />
+        </LinearLayout>
         <ImageView
             android:id="@+id/btDelete"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:background="@android:color/holo_red_light" />
 
         <ImageView
             android:id="@+id/btEdit"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:background="@android:color/darker_gray"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="10dp"
             android:layout_toLeftOf="@+id/btDelete" />
     </RelativeLayout>
+    </androidx.cardview.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
+        android:layout_marginLeft="20dp"
         android:id="@+id/layout_information"
         >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="Destination"
+                android:paddingHorizontal="10dp"
                 android:layout_weight="1"
                 />
             <TextView
@@ -59,14 +90,21 @@
                 android:gravity="center_vertical"
                 android:id="@+id/tv_destination"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
+                android:paddingHorizontal="10dp"
                 android:text="Description"
                 android:layout_weight="1"
                 />
@@ -77,14 +115,21 @@
                 android:gravity="center_vertical"
                 android:id="@+id/tv_description"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
+                android:paddingHorizontal="10dp"
                 android:text="Risk"
                 android:layout_weight="1"
                 />
@@ -95,15 +140,22 @@
                 android:gravity="center_vertical"
                 android:id="@+id/tv_risk"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="Date"
+                android:paddingHorizontal="10dp"
                 android:layout_weight="1"
                 />
             <TextView
@@ -113,9 +165,16 @@
                 android:gravity="center_vertical"
                 android:id="@+id/tv_date"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
+            android:paddingHorizontal="10dp"
             android:orientation="horizontal"
             android:id="@+id/layout_oversea">
             <TextView
@@ -132,29 +191,48 @@
                 android:gravity="center_vertical"
                 android:id="@+id/tv_oversea_nation"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dip_10"
+            android:id="@+id/layout_detail"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Details"
-                android:textSize="12sp"
+                android:paddingHorizontal="10dp"
                 android:gravity="center_vertical"
                 />
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_gravity="center_vertical"
-                android:id="@+id/btnDetailAdd"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                app:cardCornerRadius="20dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/btnDetailAdd"
+                    android:background="#0000FF"
+                    android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/detail_recycler_view"
+            android:visibility="gone"
             tools:listitem="@layout/item_expense_detail"/>
     </LinearLayout>
 </LinearLayout>

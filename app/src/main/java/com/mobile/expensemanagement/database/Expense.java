@@ -1,21 +1,38 @@
 package com.mobile.expensemanagement.database;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
+@Entity
 public class Expense implements Serializable {
+    @PrimaryKey
+    private String uuid;
+    @ColumnInfo
     private String name;
+    @ColumnInfo
     private String destination;
+    @ColumnInfo
     private Boolean isRisk;
+    @ColumnInfo
     private String description;
+    @ColumnInfo
     private Boolean isOversea;
+    @ColumnInfo
     private String overseaNation;
+    @ColumnInfo
     private String date;
+    @ColumnInfo
     private List<ExpenseDetail> details;
 
     public Expense(){}
 
     public Expense(String name,String destination,Boolean isRisk,String description,boolean isOversea,String overseaNation,String date,List<ExpenseDetail> details){
+        this.uuid = UUID.randomUUID().toString();
         this.name = name;
         this.description = description;
         this.destination = destination;
@@ -81,4 +98,9 @@ public class Expense implements Serializable {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public List<ExpenseDetail> getDetails() {
+        return details;
+    }
+
 }

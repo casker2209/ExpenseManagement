@@ -3,85 +3,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".expense.fragment.CreateFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:paddingHorizontal="40dp"
+        android:paddingTop="100dp">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginVertical="5dp"
-            android:paddingHorizontal="5dp"
-            android:gravity="center_vertical"
-            android:hint="Name (required)"
-            android:id="@+id/ed_name"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginVertical="5dp"
-            android:paddingHorizontal="5dp"
-            android:gravity="center_vertical"
-            android:hint="Description (required)"
-            android:id="@+id/ed_description"/>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Name (required)"
+                app:hintEnabled="true">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginVertical="5dp"
-            android:paddingHorizontal="5dp"
-            android:gravity="center_vertical"
-            android:hint="Destination (required)"
-            android:id="@+id/ed_destination"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginVertical="5dp"
-            android:paddingHorizontal="5dp"
-            android:gravity="center_vertical"
-            android:hint="Date (required)"
-            android:id="@+id/ed_date"/>
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:text="Risky"
-            android:layout_marginVertical="5dp"
-            android:id="@+id/cb_risk"/>
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:gravity="center_vertical"
-            android:text="Oversea"
-            android:paddingLeft="5dp"
-            android:layout_marginVertical="5dp"
-            android:id="@+id/cb_oversea"/>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Description (required)"
+                app:hintEnabled="true">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginVertical="5dp"
-            android:paddingHorizontal="5dp"
-            android:gravity="center_vertical"
-            android:hint="Overseas nation"
-            android:id="@+id/ed_oversea"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingHorizontal="20dp"
-            android:textColor="#FFFFFF"
-            android:background="#0000FF"
-            android:id="@+id/btConfirm"
-            android:text="Confirm" />
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Destination (required)"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Date (required)"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:focusable="false"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/cb_risk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Risky" />
+
+            <CheckBox
+                android:id="@+id/cb_oversea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Oversea" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_oversea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:hint="Overseas nation" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#0000FF"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="Confirm"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

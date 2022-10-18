@@ -1,4 +1,4 @@
-package com.viettel.vpmt.vofficenew.expense.database;
+package com.mobile.expensemanagementw.expense.database;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,14 +1,26 @@
 package com.mobile.expensemanagement.fragment;
 
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
+
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.mobile.expensemanagement.R;
+import com.mobile.expensemanagement.activity.ExpenseActivity;
+import com.mobile.expensemanagement.database.Expense;
+import com.mobile.expensemanagement.database.ExpenseDetail;
+
+import java.util.Calendar;
 
 
 /**
@@ -17,41 +29,15 @@ import com.mobile.expensemanagement.R;
  * create an instance of this fragment.
  */
 public class EditFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public EditFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EditFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment newInstance(String param1, String param2) {
+    Expense expense;
+    int index;
+    TextInputEditText edType,edAmount,edDate,edComment;
+    Button btConfirm;
+    public static Fragment newInstance(Expense expense,int index) {
         EditFragment fragment = new EditFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static Fragment newInstance() {
-        EditFragment fragment = new EditFragment();
-        Bundle args = new Bundle();
+        args.putSerializable("EXPENSE",expense);
+        args.putInt("INDEX",index);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,15 +46,61 @@ public class EditFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            expense = (Expense) getArguments().getSerializable("EXPENSE");
+            index = getArguments().getInt("INDEX");
         }
+    }
+
+    private void initView(View view){
+        edType = view.findViewById(R.id.ed_type);
+        edAmount = view.findViewById(R.id.ed_amount);
+        edDate = view.findViewById(R.id.ed_date);
+        btConfirm = view.findViewById(R.id.btConfirm);
+        edAmount.setText("0");
+        edDate.setText(expense.getDate());
+        edComment = view.findViewById(R.id.ed_comment);
+        btConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!validForm()) Toast.makeText(getContext(),"There is one or more required fields unfilled",Toast.LENGTH_LONG).show();
+                else {
+                    expense.getDetails().add(new ExpenseDetail(edType.getText().toString(),Integer.parseInt(edAmount.getText().toString()),edDate.getText().toString(),edComment.getText().toString()));
+                    
+                    ((ExpenseActivity) (getActivity())).replaceExpenseFragment(expense,index);
+                }
+            }
+        });
+        edDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        month = month + 1;
+                        String strMonth = month < 10 ? "0"+String.valueOf(month) : String.valueOf(month);
+                        String strDay = day < 10 ? "0"+String.valueOf(day) : String.valueOf(day);
+                        edDate.setText(strDay+"/"+strMonth+"/"+year);
+                    }
+                },year,month,day);
+                dialog.show();
+            }
+        });
+    }
+
+    private boolean validForm() {
+        return !(edType.getText().toString().isEmpty() || edAmount.getText().toString().isEmpty() || edDate.getText().toString().isEmpty());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit, container, false);
+        initView(view);
+        return view;
     }
 }

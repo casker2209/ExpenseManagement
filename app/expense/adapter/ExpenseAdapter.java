@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.viettel.vpmt.vofficenew.R;
-import com.viettel.vpmt.vofficenew.expense.activity.ExpenseActivity;
-import com.viettel.vpmt.vofficenew.expense.database.Expense;
+import com.mobile.expensemanagement.activity.ExpenseActivity;
+import com.mobile.expensemanagement.expense.database.Expense;
 
 import java.util.List;
 

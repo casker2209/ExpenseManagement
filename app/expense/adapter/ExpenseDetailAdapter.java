@@ -1,4 +1,4 @@
-package com.viettel.vpmt.vofficenew.expense.adapter;
+package com.mobile.expensemanagement.expense.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.viettel.vpmt.vofficenew.R;
-import com.viettel.vpmt.vofficenew.expense.database.ExpenseDetail;
+import com.mobile.expensemanagement.R;
+import com.mobile.expensemanagement.expense.database.ExpenseDetail;
 
 import java.util.List;
 

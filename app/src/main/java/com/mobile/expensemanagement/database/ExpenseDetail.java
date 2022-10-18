@@ -4,10 +4,12 @@ public class ExpenseDetail {
     private String type;
     private int amount;
     private String date;
-    public ExpenseDetail(String type,int amount,String date){
+    private String comment;
+    public ExpenseDetail(String type,int amount,String date,String comment){
         this.type = type;
         this.amount = amount;
         this.date = date;
+        this.comment = comment;
     }
 
     public int getAmount() {
@@ -32,5 +34,13 @@ public class ExpenseDetail {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
